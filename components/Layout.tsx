@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         <div className="flex items-center space-x-12">
           <Link to="/" className={`text-xl font-bold tracking-tight transition-colors group ${
-            !scrolled && isHome ? 'text-white' : 'text-neutral-900 dark:text-white'
+            !scrolled && isHome ? (theme === 'dark' ? 'text-white' : 'text-neutral-900') : 'text-neutral-900 dark:text-white'
           }`}>
             Hyperland<span className="text-primary group-hover:scale-110 inline-block transition-transform">HQ</span>
           </Link>
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
                   isActive(item.path) 
                     ? 'text-primary' 
                     : !scrolled && isHome 
-                      ? 'text-white/80 hover:text-white' 
+                      ? (theme === 'dark' ? 'text-white/80 hover:text-white' : 'text-neutral-900/80 hover:text-neutral-900')
                       : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
                 }`}
               >
@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
             onClick={toggleTheme}
             className={`p-2 rounded-full transition-all hover:scale-110 active:scale-90 ${
               !scrolled && isHome 
-                ? 'bg-white/10 text-white/80 hover:text-white' 
+                ? (theme === 'dark' ? 'bg-white/10 text-white/80 hover:text-white' : 'bg-neutral-900/10 text-neutral-900/80 hover:text-neutral-900')
                 : 'bg-neutral-200/50 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-primary'
             }`}
             aria-label="Toggle theme"
@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
           
           {/* Mobile Nav Toggle */}
           <button 
-            className={`md:hidden p-1 ${!scrolled && isHome ? 'text-white' : 'text-neutral-500 dark:text-neutral-400'}`}
+            className={`md:hidden p-1 ${!scrolled && isHome ? (theme === 'dark' ? 'text-white' : 'text-neutral-900') : 'text-neutral-500 dark:text-neutral-400'}`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
