@@ -15,6 +15,16 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const subject = encodeURIComponent(`Project Inquiry: ${formData.firstName} ${formData.lastName}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.firstName} ${formData.lastName}\n` +
+      `Email: ${formData.email}\n` +
+      `Website: ${formData.website || 'N/A'}\n\n` +
+      `Project Description:\n${formData.project}\n`
+    );
+
+    window.location.href = `mailto:hello@hyperlandhq.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -138,7 +148,7 @@ const Contact: React.FC = () => {
                 type="submit" 
                 className="w-full bg-primary text-white font-bold py-5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center space-x-2 border-none shadow-[0_0_30px_rgba(20,139,59,0.3)]"
               >
-                <span>Start today</span> <ArrowRight size={18} />
+                <span>Contact us</span> <ArrowRight size={18} />
               </Button>
             </form>
           )}
