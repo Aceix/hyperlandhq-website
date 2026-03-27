@@ -154,7 +154,7 @@ const About: React.FC = () => {
               </p>
               <div className="mt-12 pt-8 border-t border-neutral-100 flex justify-between items-center text-[10px] font-bold text-neutral-900 uppercase tracking-[0.2em]">
                 <span>KWESI</span>
-                <span className="text-neutral-400">CO-FOUNDER & MANAGING DIRECTOR</span>
+                <span className="text-neutral-400">CO-FOUNDER & ENGINEERING DIRECTOR</span>
               </div>
             </div>
 
