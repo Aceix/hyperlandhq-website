@@ -32,8 +32,8 @@ const Products: React.FC = () => {
     <div className="bg-white pt-32 pb-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
-        <div className="mb-24 reveal">
-          <h1 className="text-6xl md:text-5xl font-medium text-neutral-900 mb-8 tracking-tighter max-w-4xl">
+        <div className="mb-12 md:mb-24 reveal">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-neutral-900 mb-8 tracking-tighter max-w-4xl">
             Turning ideas into world-class digital products.
           </h1>
         </div>

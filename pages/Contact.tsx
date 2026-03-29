@@ -37,21 +37,21 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="bg-white pt-32 pb-24 px-6 md:px-12">
+    <div className="bg-white pt-24 pb-16 md:pt-32 md:pb-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-24">
 
           {/* Left Column: Info & Founder Card */}
           <div className="lg:col-span-5 reveal">
-            <h1 className="text-6xl md:text-8xl font-bold text-neutral-900 mb-8 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-neutral-900 mb-8 tracking-tight">
               Contact
             </h1>
-            <p className="text-xl text-neutral-600 leading-relaxed mb-16 max-w-lg">
+            <p className="text-lg md:text-xl text-neutral-600 leading-relaxed mb-12 md:mb-16 max-w-lg">
               Let’s turn your ideas into something powerful—fill out the form to begin.
             </p>
 
             {/* Founder Card */}
-            <div className="bg-neutral-50 rounded-lg p-8 mb-16 max-w-sm reveal stagger-1">
+            <div className="bg-neutral-50 rounded-lg p-6 md:p-8 mb-12 md:mb-16 max-w-sm reveal stagger-1">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 rounded-full overflow-hidden bg-neutral-200">
                   <img

@@ -219,7 +219,7 @@ const Home: React.FC = () => {
               </div>
             </div>
           </div>
-
+z
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Jotta Note - Spans 2 columns */}
             <div className="lg:col-span-2 bg-[#1A1A1A] rounded-lg overflow-hidden flex flex-col md:flex-row reveal">

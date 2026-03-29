@@ -16,6 +16,17 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Works', path: '/works' },
@@ -33,7 +44,7 @@ const Navbar: React.FC = () => {
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold tracking-tight text-neutral-900">
+        <Link to="/" className="text-xl font-bold tracking-tight text-neutral-900 relative z-50">
           Hyperland<span className="text-green-600 font-normal"> HQ</span>
         </Link>
 
@@ -53,7 +64,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center space-x-4">
           {/* Mobile Nav Toggle */}
           <button
-            className="md:hidden p-2 text-neutral-900"
+            className="md:hidden p-2 text-neutral-900 relative z-50"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -62,29 +73,35 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Nav Menu */}
-      {isOpen && (
-        <div className="md:hidden fixed inset-0 top-0 bg-white px-6 pt-24 flex flex-col space-y-6 z-40">
+      <div 
+        className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="px-6 pt-32 flex flex-col space-y-8 h-full overflow-y-auto pb-12">
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.path}
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-bold text-neutral-900"
+              className={`text-4xl font-bold transition-colors ${
+                isActive(item.path) ? 'text-green-600' : 'text-neutral-900 hover:text-green-600'
+              }`}
             >
               {item.name}
             </Link>
           ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black pt-24 pb-12 text-white">
+    <footer className="bg-black pt-16 pb-8 md:pt-24 md:pb-12 text-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start mb-20 space-y-12 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-20 space-y-8 md:space-y-0 md:space-y-0">
           <div>
             <h3 className="text-xl font-bold mb-2">HyperlandHQ</h3>
             <p className="text-neutral-500 text-sm max-w-xs leading-relaxed">
@@ -109,7 +126,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-neutral-800 text-neutral-600 text-[10px] uppercase tracking-widest font-bold">
           <p>&copy; {new Date().getFullYear()} HyperlandHQ. Build with precision.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex flex-col md:flex-row items-center md:items-start mt-6 md:mt-0 space-y-4 md:space-y-0 md:space-x-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
           </div>

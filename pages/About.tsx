@@ -8,10 +8,10 @@ const About: React.FC = () => {
   return (
     <div className="bg-white px-6 pt-24 pb-6 md:pt-32 md:pb-10">
       {/* Immersive Hero Section */}
-      <section className="relative h-[90vh] min-h-[700px] w-full rounded-lg overflow-hidden group">
+      <section className="relative h-[80vh] min-h-[500px] md:h-[90vh] md:min-h-[700px] w-full rounded-lg overflow-hidden group">
         <div className="absolute inset-0">
           <img
-            src="/images/our-office.PNG"
+            src="/images/our-office.png"
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             alt="About HQ"
           />
@@ -19,15 +19,15 @@ const About: React.FC = () => {
         </div>
 
         {/* Headline Overlay */}
-        <div className="absolute bottom-20 left-12 reveal">
-          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.05]">
+        <div className="absolute bottom-12 left-6 md:bottom-20 md:left-12 reveal">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white tracking-tight leading-[1.05]">
             From first idea to  <span className="font-serif italic font-normal text-neutral-300">real impact</span><br />
             we design and build products <span className="font-serif italic font-normal text-neutral-300">that scale and lead</span>
           </h1>
         </div>
 
         {/* Footer Labels */}
-        <div className="absolute bottom-8 left-12 right-12 flex justify-between items-center text-[10px] font-bold text-white/70 uppercase tracking-[0.4em] reveal stagger-1">
+        <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-12 md:right-12 flex justify-between items-center text-[10px] font-bold text-white/70 uppercase tracking-[0.4em] reveal stagger-1">
           <span className="flex-1 text-left">ABOUT US</span>
           <span className="flex-1 text-center hidden md:block">CREATIVE SPACE</span>
           <span className="flex-1 text-right">HYPERLANDHQ CULTURE</span>
@@ -35,16 +35,16 @@ const About: React.FC = () => {
       </section>
 
       {/* Philosophy Section - Detailed Asymmetrical 2 Column */}
-      <section className="py-40 px-6 bg-white border-t border-neutral-50">
+      <section className="py-20 md:py-40 px-6 bg-white border-t border-neutral-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-12 md:gap-24">
             <div className="md:col-span-4 reveal">
               <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.4em]">
                 ABOUT HYPERLANDHQ
               </span>
             </div>
             <div className="md:col-span-8 reveal stagger-1">
-              <h2 className="text-3xl md:text-[40px] font-medium text-neutral-900 leading-[1.2] tracking-tight mb-12 max-w-2xl">
+              <h2 className="text-3xl md:text-[40px] font-medium text-neutral-900 leading-[1.2] tracking-tight mb-8 md:mb-12 max-w-2xl">
                 Engineering done with <span className="font-serif italic text-neutral-500">purpose</span>, built with precision and shaped alongside founders redefining their industries.
               </h2>
 
@@ -68,7 +68,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Internal Team Section */}
-      <section className="py-40 px-6 bg-white border-t border-neutral-50">
+      <section className="py-20 md:py-40 px-6 bg-white border-t border-neutral-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
             <h2 className="text-4xl md:text-5xl font-medium text-neutral-900 leading-tight tracking-tight max-w-2xl">
@@ -76,7 +76,7 @@ const About: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-12 md:gap-24 items-start">
             <div className="md:col-span-4 reveal">
               <div className="aspect-[3/4] rounded-lg overflow-hidden bg-neutral-100">
                 <img
@@ -131,18 +131,18 @@ const About: React.FC = () => {
       </section>
 
       {/* Founders Section */}
-      <section className="py-40 px-6 bg-white border-t border-neutral-50">
+      <section className="py-20 md:py-40 px-6 bg-white border-t border-neutral-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
-            <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.4em] block mb-12">
+            <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.4em] block mb-8 md:mb-12">
               MEET THE FOUNDERS
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-12 md:gap-24">
             {/* Kwesi */}
             <div className="reveal stagger-1 flex flex-col h-full">
-              <div className="aspect-[4/5] rounded-lg overflow-hidden bg-neutral-100 mb-12">
+              <div className="aspect-[4/5] rounded-lg overflow-hidden bg-neutral-100 mb-8 md:mb-12">
                 <img
                   src="/images/kwesi.jpeg"
                   className="w-full h-full object-cover grayscale"
@@ -152,7 +152,7 @@ const About: React.FC = () => {
               <p className="text-neutral-500 text-sm leading-relaxed mb-auto">
                 Kwesi plays a hands-on role in every client partnership, working directly with founders, CTOs, and CXOs to shape strategy and drive results. Not only is he an amicable engineering savant; clients see him as a true partner and someone who understands their business, anticipates challenges from a technical standpoint, and delivers impact where it counts.
               </p>
-              <div className="mt-12 pt-8 border-t border-neutral-100 flex justify-between items-center text-[10px] font-bold text-neutral-900 uppercase tracking-[0.2em]">
+              <div className="mt-8 pt-6 md:mt-12 md:pt-8 border-t border-neutral-100 flex justify-between items-center text-[10px] font-bold text-neutral-900 uppercase tracking-[0.2em]">
                 <span>KWESI</span>
                 <span className="text-neutral-400">CO-FOUNDER & ENGINEERING DIRECTOR</span>
               </div>
@@ -160,7 +160,7 @@ const About: React.FC = () => {
 
             {/* Pearl */}
             <div className="reveal stagger-2 flex flex-col h-full">
-              <div className="aspect-[4/5] rounded-lg overflow-hidden bg-neutral-100 mb-12">
+              <div className="aspect-[4/5] rounded-lg overflow-hidden bg-neutral-100 mb-8 md:mb-12">
                 <img
                   src="/images/pearl-pic.jpg"
                   className="w-full h-full object-cover grayscale"
@@ -170,7 +170,7 @@ const About: React.FC = () => {
               <p className="text-neutral-500 text-sm leading-relaxed mb-auto">
                 Pearl is the design lead at HyperlandHQ. With 5+ years designing across agritech, fintech, EdTech, and HRTech, she brings clarity, depth, and intention to every product she touches. Her work shapes how digital experiences feel, not just how they look. She partners with grounded, purpose-driven teams building products that create real impact in people's lives, from smallholder farmers across Africa to HR teams managing distributed workforces. Known for her ability to go deep, she treats every product as her own, translating complex, messy workflows into experiences that are both intuitive and human.
               </p>
-              <div className="mt-12 pt-8 border-t border-neutral-100 flex justify-between items-center text-[10px] font-bold text-neutral-900 uppercase tracking-[0.2em]">
+              <div className="mt-8 pt-6 md:mt-12 md:pt-8 border-t border-neutral-100 flex justify-between items-center text-[10px] font-bold text-neutral-900 uppercase tracking-[0.2em]">
                 <span>PEARL</span>
                 <span className="text-neutral-400">CO-FOUNDER & DESIGN DIRECTOR</span>
               </div>
@@ -180,8 +180,8 @@ const About: React.FC = () => {
       </section>
 
       {/* Closing Section */}
-      <section className="py-28 px-6 bg-black text-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+      <section className="py-20 md:py-28 px-6 bg-black text-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
           <div className="reveal">
             <h4 className="text-3xl font-bold mb-6 tracking-tight">Work with us</h4>
             <p className="text-neutral-400 leading-relaxed mb-10 max-w-md">
