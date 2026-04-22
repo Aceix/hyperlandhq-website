@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 // Scroll to top and trigger page animation
 const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -36,6 +38,8 @@ const App: React.FC = () => {
               <Route path="/works" element={<Products />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
             </Routes>
           </PageWrapper>
         </Layout>

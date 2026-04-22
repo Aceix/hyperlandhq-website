@@ -73,10 +73,9 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Nav Menu */}
-      <div 
-        className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+      <div
+        className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="px-6 pt-32 flex flex-col space-y-8 h-full overflow-y-auto pb-12">
           {navItems.map((item) => (
@@ -84,9 +83,8 @@ const Navbar: React.FC = () => {
               key={item.name}
               to={item.path}
               onClick={() => setIsOpen(false)}
-              className={`text-4xl font-bold transition-colors ${
-                isActive(item.path) ? 'text-green-600' : 'text-neutral-900 hover:text-green-600'
-              }`}
+              className={`text-4xl font-bold transition-colors ${isActive(item.path) ? 'text-green-600' : 'text-neutral-900 hover:text-green-600'
+                }`}
             >
               {item.name}
             </Link>
@@ -126,9 +124,9 @@ const Footer: React.FC = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-neutral-800 text-neutral-600 text-[10px] uppercase tracking-widest font-bold">
           <p>&copy; {new Date().getFullYear()} HyperlandHQ. Build with precision.</p>
-          <div className="flex flex-col md:flex-row items-center md:items-start mt-6 md:mt-0 space-y-4 md:space-y-0 md:space-x-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
