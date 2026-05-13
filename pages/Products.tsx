@@ -1,9 +1,17 @@
-
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Products: React.FC = () => {
   const products = [
+    {
+      id: "captionhype",
+      displayName: "CaptionHype",
+      tagline: "software development | ai captioning | mobile design",
+      image: "/images/captionhype/hero below.png",
+      link: "/captionhype",
+      isInternal: true
+    },
     {
       id: "caselify",
       name: "Ridgerunner",
@@ -42,29 +50,55 @@ const Products: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
           {products.map((product, idx) => (
             <div key={product.id} className="reveal group cursor-pointer group">
-              <a href={product.link} target="_blank" rel="noopener noreferrer" className="block">
-                {/* Image Container */}
-                <div className="aspect-[4/3] rounded-lg overflow-hidden bg-neutral-100 mb-8 relative">
-                  <img
-                    src={product.image}
-                    alt={product.displayName}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-
-                {/* Metadata */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 tracking-tight">
-                      {product.displayName}
-                    </h2>
-                    <ExternalLink size={20} className="text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              {product.isInternal ? (
+                <Link to={product.link} className="block">
+                  {/* Image Container */}
+                  <div className="aspect-[4/3] rounded-lg overflow-hidden bg-neutral-100 mb-8 relative">
+                    <img
+                      src={product.image}
+                      alt={product.displayName}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
                   </div>
-                  <p className="text-sm text-neutral-500 font-medium tracking-wide">
-                    {product.tagline}
-                  </p>
-                </div>
-              </a>
+
+                  {/* Metadata */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 tracking-tight">
+                        {product.displayName}
+                      </h2>
+                      <ExternalLink size={20} className="text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <p className="text-sm text-neutral-500 font-medium tracking-wide">
+                      {product.tagline}
+                    </p>
+                  </div>
+                </Link>
+              ) : (
+                <a href={product.link} target="_blank" rel="noopener noreferrer" className="block">
+                  {/* Image Container */}
+                  <div className="aspect-[4/3] rounded-lg overflow-hidden bg-neutral-100 mb-8 relative">
+                    <img
+                      src={product.image}
+                      alt={product.displayName}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+
+                  {/* Metadata */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 tracking-tight">
+                        {product.displayName}
+                      </h2>
+                      <ExternalLink size={20} className="text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <p className="text-sm text-neutral-500 font-medium tracking-wide">
+                      {product.tagline}
+                    </p>
+                  </div>
+                </a>
+              )}
             </div>
           ))}
 

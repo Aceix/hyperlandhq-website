@@ -135,13 +135,16 @@ const Footer: React.FC = () => {
 };
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const location = useLocation();
+  const isCaptionHype = location.pathname.startsWith('/captionhype');
+
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar />
+      {!isCaptionHype && <Navbar />}
       <main className="flex-grow">
         {children}
       </main>
-      <Footer />
+      {!isCaptionHype && <Footer />}
     </div>
   );
 };

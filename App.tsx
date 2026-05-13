@@ -9,6 +9,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import CaptionHype from './pages/CaptionHype';
 
 // Scroll to top and trigger page animation
 const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -40,6 +41,7 @@ const App: React.FC = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/captionhype" element={<CaptionHype />} />
             </Routes>
           </PageWrapper>
         </Layout>

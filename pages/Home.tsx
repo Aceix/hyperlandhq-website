@@ -180,6 +180,30 @@ const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            {/* CaptionHype */}
+            <div className="bg-[#853dc1] p-12 rounded-lg flex flex-col justify-between group reveal">
+              <div>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                    <img src="/images/captionhype/logo-plain.jpg" alt="" className="w-8 h-8 object-contain" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-white">CaptionHype</h3>
+                </div>
+                <p className="text-white/80 text-lg max-w-sm leading-relaxed">
+                  The purpose-built design platform for every social media person. Generate captions and enhance photos in seconds.
+                </p>
+              </div>
+              <div className="mt-12">
+                <div className="w-full h-[1px] bg-white/20 mb-8"></div>
+                <Link
+                  to="/captionhype"
+                  className="text-[10px] font-bold text-white uppercase tracking-[0.2em] flex items-center group-hover:text-purple-200 transition-colors"
+                >
+                  VIEW CASE STUDY <ArrowRight size={14} className="ml-2 -rotate-45" />
+                </Link>
+              </div>
+            </div>
+
             {/* Caselify */}
             <div className="bg-[#1A1A1A] p-12 rounded-lg flex flex-col justify-between group reveal">
               <div>
