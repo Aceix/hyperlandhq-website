@@ -328,18 +328,18 @@ const CaptionHype: React.FC = () => {
         </section>
 
         {/* Footer */}
-        <footer className="bg-[#700a95] pt-24 pb-14 px-6 md:px-20 rounded-t-[48px] text-white relative overflow-hidden">
+        <footer className="relative overflow-hidden rounded-t-[48px] bg-[#700a95] px-6 pt-20 pb-12 md:px-20 md:pt-24 md:pb-14 text-white">
           {/* Large Background Branding */}
-          <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 text-[22vw] font-semibold text-white/[0.04] uppercase tracking-tighter select-none pointer-events-none whitespace-nowrap">
+          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[35vw] font-semibold uppercase tracking-tighter text-white/[0.03] pointer-events-none md:-bottom-20 md:text-[22vw]">
             CaptionHype
           </div>
 
-          <div className="max-w-6xl mx-auto relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-24 gap-16">
-              <p className="text-2xl font-medium text-white/90 max-w-sm leading-tight text-center md:text-left">
-                One photo. <br />One caption. <br />Post every day.
+          <div className="relative z-10 mx-auto max-w-6xl">
+            <div className="mb-16 flex flex-col items-center justify-between gap-12 md:mb-24 md:flex-row md:items-start">
+              <p className="max-w-sm text-center text-xl font-medium leading-tight text-white/90 md:text-left md:text-2xl">
+                One photo. <br className="hidden md:block" /> One caption. <br className="hidden md:block" /> Post every day.
               </p>
-              <div className="flex flex-wrap justify-center gap-x-16 gap-y-8 text-[12px] font-medium uppercase tracking-[0.4em]">
+              <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 text-[11px] font-medium uppercase tracking-[0.3em] md:gap-x-16 md:text-[12px] md:tracking-[0.4em]">
                 <Link to="/privacy" className="hover:text-purple-200 transition-colors">Privacy Policy</Link>
                 <Link to="/terms" className="hover:text-purple-200 transition-colors">Terms</Link>
                 <a href="mailto:captionhype@hyperlandhq.com" className="hover:text-purple-200 transition-colors">Contact</a>
@@ -347,15 +347,15 @@ const CaptionHype: React.FC = () => {
             </div>
 
             <div className="flex flex-col items-center justify-center">
-              <div className="flex items-center gap-10 group transition-all mb-16">
-                <div className="w-36 h-36 bg-white rounded-[36px] flex items-center justify-center shadow-[0_30px_100px_rgba(0,0,0,0.3)] transition-transform group-hover:scale-105 group-hover:rotate-2">
-                  <img src="/images/captionhype/logo-plain.jpg" alt="CaptionHype Logo" className="w-20 h-20 object-contain" />
+              <div className="mb-12 flex flex-col items-center gap-6 group transition-all md:mb-16 md:flex-row md:gap-10">
+                <div className="flex h-24 w-24 items-center justify-center rounded-[24px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.2)] transition-transform group-hover:scale-105 group-hover:rotate-2 md:h-36 md:w-36 md:rounded-[36px]">
+                  <img src="/images/captionhype/logo-plain.jpg" alt="CaptionHype Logo" className="h-14 w-14 object-contain md:h-20 md:w-20" />
                 </div>
-                <h2 className="text-6xl md:text-[110px] font-semibold tracking-tighter uppercase leading-none text-transparent select-none [-webkit-text-stroke:1px_rgba(255,255,255,0.45)]">
+                <h2 className="text-4xl font-semibold uppercase leading-none tracking-tighter text-transparent select-none [-webkit-text-stroke:1px_rgba(255,255,255,0.4)] md:text-[110px] md:[-webkit-text-stroke:1px_rgba(255,255,255,0.45)]">
                   CaptionHype
                 </h2>
               </div>
-              <p className="text-white/20 text-[11px] font-medium uppercase tracking-[0.8em] text-center">
+              <p className="text-center text-[10px] font-medium uppercase tracking-[0.6em] text-white/20 md:tracking-[0.8em]">
                 © 2026 CaptionHype. All rights reserved.
               </p>
             </div>
