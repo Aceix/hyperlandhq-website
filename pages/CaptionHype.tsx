@@ -10,22 +10,44 @@ const CaptionHype: React.FC = () => {
   const yearlySavingsPercent = Math.round(((monthlyPrice * 12 - yearlyPrice) / (monthlyPrice * 12)) * 100);
   const proPrice = isYearly ? '$29.99' : '$2.99';
   const proInterval = isYearly ? '/ year' : '/mo';
+  const freeInterval = 'forever';
   const proDescription = isYearly ? '150 captions per month · $2.50/mo billed yearly' : '100 captions per month';
   const proFeatures = isYearly
     ? ['150 captions/month', 'Caption history in The Reel', 'Streak tracking and milestones', 'Priority generation speed']
     : ['100 captions/month', 'Caption history in The Reel', 'Streak tracking and milestones', 'Priority generation speed'];
 
   useEffect(() => {
-    // Scroll reveal logic
     const observerOptions = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          entry.target.setAttribute('data-revealed', 'true');
+        }
       });
     }, observerOptions);
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach((el) => observer.observe(el));
+
+    // Handle React re-renders stripping classes
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          const target = mutation.target as HTMLElement;
+          if (target.getAttribute('data-revealed') === 'true' && !target.classList.contains('active')) {
+            target.classList.add('active');
+          }
+        }
+      });
+    });
+
+    revealElements.forEach((el) => mutationObserver.observe(el, { attributes: true }));
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 
   // Precise background gradients from Figma
@@ -252,74 +274,80 @@ const CaptionHype: React.FC = () => {
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="py-24 px-6 md:px-20 bg-white">
-          <div className="reveal max-w-6xl mx-auto mb-16">
+        <section id="pricing" className="bg-white px-5 py-16 sm:px-6 md:px-20 md:py-24">
+          <div className="reveal mx-auto mb-10 max-w-6xl text-center sm:mb-14 md:mb-16 md:text-left">
             <span className="text-[12px] font-black uppercase tracking-[0.3em] text-[#9333ea]">PRICING</span>
-            <h2 className="text-4xl md:text-[58px] font-serif text-[#111827] tracking-tighter mt-5 leading-none">Simple pricing.</h2>
-            <p className="text-lg md:text-xl text-[#6b1ea7] mt-7 font-medium">Start free. Upgrade when you need more.</p>
+            <h2 className="mt-4 text-4xl font-serif leading-[0.95] tracking-tighter text-[#111827] sm:mt-5 md:text-[58px]">Simple pricing.</h2>
+            <p className="mx-auto mt-5 max-w-sm text-base font-medium leading-relaxed text-[#6b1ea7] sm:text-lg md:mx-0 md:mt-7 md:max-w-none md:text-xl">Start free. Upgrade when you need more.</p>
             
-            <div className="mt-12 inline-flex items-center p-2 bg-neutral-100/80 rounded-full border border-neutral-200">
+            <div className="relative mt-7 inline-flex w-full max-w-[320px] items-center rounded-full border border-neutral-200 bg-neutral-100/80 p-1 sm:mt-12 sm:w-auto">
+              <div 
+                className="pointer-events-none absolute bottom-1 left-1 top-1 w-[calc(50%-4px)] rounded-full bg-white shadow-md transition-transform duration-300 ease-in-out"
+                style={{ transform: isYearly ? 'translateX(calc(100% + 2px))' : 'translateX(0)' }}
+              />
               <button 
                 onClick={() => setIsYearly(false)}
-                className={`px-12 py-4 rounded-full text-[15px] font-black transition-all ${!isYearly ? 'bg-white text-black shadow-xl' : 'text-neutral-500'}`}
+                aria-pressed={!isYearly}
+                className={`relative z-10 flex-1 sm:px-10 py-2.5 sm:py-3.5 rounded-full text-[13px] sm:text-[15px] font-black transition-colors duration-300 ${!isYearly ? 'text-black' : 'text-neutral-500'}`}
               >
                 Monthly
               </button>
               <button 
                 onClick={() => setIsYearly(true)}
-                className={`px-12 py-4 rounded-full text-[15px] font-black transition-all flex items-center gap-3 ${isYearly ? 'bg-white text-black shadow-xl' : 'text-neutral-500'}`}
+                aria-pressed={isYearly}
+                className={`relative z-10 flex-1 sm:px-10 py-2.5 sm:py-3.5 rounded-full text-[13px] sm:text-[15px] font-black transition-colors duration-300 flex items-center justify-center gap-2 ${isYearly ? 'text-black' : 'text-neutral-500'}`}
               >
                 Yearly
-                <span className="px-3 py-1 bg-[#f3e8ff] text-[#9333ea] text-[11px] rounded-full uppercase tracking-widest font-black shadow-inner">Save {yearlySavingsPercent}%</span>
+                <span className={`px-2 py-0.5 rounded-full text-[9px] uppercase tracking-tighter font-black transition-colors ${isYearly ? 'bg-[#f3e8ff] text-[#9333ea]' : 'bg-neutral-200 text-neutral-400'}`}>-{yearlySavingsPercent}%</span>
               </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-5 md:grid-cols-2 md:gap-12">
             {/* Free Card */}
-            <div className="bg-neutral-50/50 rounded-[44px] p-10 md:p-14 flex flex-col reveal border border-neutral-100 transition-all hover:bg-white hover:shadow-2xl hover:shadow-purple-500/5">
-              <span className="text-xs font-black text-neutral-400 uppercase tracking-[0.3em] mb-9">FREE</span>
-              <div className="mb-9">
-                <span className="text-[72px] font-serif text-[#111827] tracking-tighter leading-none">$0</span>
-                <span className="text-neutral-400 text-[13px] font-black ml-5 uppercase tracking-[0.3em]">/ month</span>
+            <div className="reveal flex flex-col rounded-[28px] border border-neutral-100 bg-neutral-50/70 p-6 transition-all hover:bg-white hover:shadow-2xl hover:shadow-purple-500/5 sm:p-8 md:rounded-[44px] md:p-14">
+              <span className="mb-5 text-[10px] font-black uppercase tracking-[0.3em] text-neutral-400 sm:mb-9 sm:text-xs">FREE</span>
+              <div className="mb-5 flex items-end gap-3 sm:mb-9 sm:items-baseline sm:gap-0">
+                <span className="text-[52px] font-serif leading-none tracking-tighter text-[#111827] sm:text-6xl md:text-[72px]">$0</span>
+                <span className="mb-1 text-[10px] font-black uppercase tracking-[0.22em] text-neutral-400 sm:mb-0 sm:ml-5 sm:text-[13px] sm:tracking-[0.3em]">{freeInterval}</span>
               </div>
-              <p className="text-lg text-neutral-500 font-bold mb-10 leading-relaxed">5 captions to get started</p>
-              <ul className="space-y-5 mb-14 flex-grow">
+              <p className="mb-7 text-[15px] font-bold leading-relaxed text-neutral-500 sm:mb-10 sm:text-lg">5 captions to get started</p>
+              <ul className="mb-8 flex-grow space-y-4 sm:mb-14 sm:space-y-5">
                 {['5 lifetime generations', 'Full AI caption generation', 'Short or long captions', 'No card. No sign up.'].map(item => (
-                  <li key={item} className="flex items-center text-[#4b5563] font-bold text-base">
-                    <Check size={20} className="text-[#853dc1] mr-4 shrink-0" strokeWidth={3} />
+                  <li key={item} className="flex items-start text-[15px] font-bold leading-snug text-[#4b5563] sm:items-center sm:text-base">
+                    <Check size={19} className="mr-3 mt-0.5 shrink-0 text-[#853dc1] sm:mr-4 sm:mt-0" strokeWidth={3} />
                     {item}
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-5 bg-white border-2 border-neutral-200 rounded-[24px] text-lg font-black text-black hover:border-[#853dc1] hover:text-[#853dc1] transition-all">
+              <button className="w-full rounded-[18px] border-2 border-neutral-200 bg-white py-4 text-base font-black text-black transition-all hover:border-[#853dc1] hover:text-[#853dc1] sm:rounded-[24px] sm:py-5 sm:text-lg">
                 Download free
               </button>
             </div>
 
             {/* Pro Card */}
-            <div className="bg-[#853dc1] rounded-[44px] p-10 md:p-14 text-white flex flex-col reveal stagger-1 shadow-2xl shadow-purple-300 relative overflow-hidden group">
+            <div className="reveal stagger-1 group relative flex flex-col overflow-hidden rounded-[28px] bg-[#853dc1] p-6 text-white shadow-2xl shadow-purple-300/30 sm:p-8 md:rounded-[44px] md:p-14">
               {isYearly && (
-                <div className="absolute top-14 right-14 bg-white/20 backdrop-blur-xl px-6 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.2em] border border-white/20 z-10">Recommended</div>
+                <div className="relative z-10 mb-5 w-max rounded-full border border-white/20 bg-white/20 px-4 py-1.5 text-[9px] font-black uppercase tracking-[0.2em] backdrop-blur-xl sm:absolute sm:right-14 sm:top-14 sm:mb-0 sm:px-6 sm:py-2 sm:text-[11px]">Recommended</div>
               )}
               <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-[100px] group-hover:bg-white/20 transition-colors"></div>
               
-              <span className="text-xs font-black text-white/50 uppercase tracking-[0.3em] mb-9 relative z-10">PRO</span>
-              <div className="mb-9 relative z-10">
-                <span className="text-[72px] font-serif tracking-tighter leading-none">{proPrice}</span>
-                <span className="text-white/50 text-[13px] font-black ml-5 uppercase tracking-[0.3em]">{proInterval}</span>
+              <span className="relative z-10 mb-5 text-[10px] font-black uppercase tracking-[0.3em] text-white/55 sm:mb-9 sm:text-xs">PRO</span>
+              <div className="relative z-10 mb-5 flex items-end gap-3 sm:mb-9 sm:items-baseline sm:gap-0">
+                <span className="text-[52px] font-serif leading-none tracking-tighter sm:text-6xl md:text-[72px]">{proPrice}</span>
+                <span className="mb-1 text-[10px] font-black uppercase tracking-[0.22em] text-white/55 sm:mb-0 sm:ml-5 sm:text-[13px] sm:tracking-[0.3em]">{proInterval}</span>
               </div>
-              <p className="text-lg text-white/80 font-bold mb-10 leading-relaxed relative z-10">{proDescription}</p>
-              <ul className="space-y-5 mb-14 flex-grow relative z-10">
+              <p className="relative z-10 mb-7 text-[15px] font-bold leading-relaxed text-white/85 sm:mb-10 sm:text-lg">{proDescription}</p>
+              <ul className="relative z-10 mb-8 flex-grow space-y-4 sm:mb-14 sm:space-y-5">
                 {proFeatures.map(item => (
-                  <li key={item} className="flex items-center text-white font-bold text-base">
-                    <Check size={20} className="text-white/50 mr-4 shrink-0" strokeWidth={3} />
+                  <li key={item} className="flex items-start text-[15px] font-bold leading-snug text-white sm:items-center sm:text-base">
+                    <Check size={19} className="mr-3 mt-0.5 shrink-0 text-white/55 sm:mr-4 sm:mt-0" strokeWidth={3} />
                     {item}
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-5 bg-white text-[#853dc1] rounded-[24px] text-lg font-black shadow-2xl hover:bg-purple-50 transition-all relative z-10">
-                Download and upgrade in-app
+              <button className="relative z-10 w-full rounded-[18px] bg-white py-4 text-base font-black text-[#853dc1] shadow-2xl transition-all hover:bg-purple-50 sm:rounded-[24px] sm:py-5 sm:text-lg">
+                Upgrade in-app
               </button>
             </div>
           </div>
