@@ -13,7 +13,7 @@ const CaptionHype: React.FC = () => {
   const proDescription = isYearly ? '150 captions per month · $2.50/mo billed yearly' : '100 captions per month';
   const proFeatures = isYearly
     ? ['150 captions/month', 'Caption history in The Reel', 'Streak tracking and milestones', 'Priority generation speed']
-    : ['100 captions/month', 'Caption history in The Vault', 'Streak tracking and milestones', 'Priority generation speed'];
+    : ['100 captions/month', 'Caption history in The Reel', 'Streak tracking and milestones', 'Priority generation speed'];
 
   useEffect(() => {
     // Scroll reveal logic
@@ -44,8 +44,8 @@ const CaptionHype: React.FC = () => {
       {/* Sidebar - Fixed Left */}
       <aside className="fixed inset-y-0 left-0 z-50 hidden h-dvh w-[315px] flex-col overflow-hidden border-r border-purple-100/30 bg-[#853dc1]/5 p-8 lg:flex">
         <div className="mb-10 flex items-center gap-3">
-          <div className="w-12 h-12 bg-[#853dc1] rounded-2xl flex items-center justify-center shadow-lg shadow-purple-200">
-            <img src="/images/captionhype/logo-plain.jpg" alt="" className="w-7 h-7 object-contain" />
+          <div className="w-12 h-12 bg-white border border-purple-100 rounded-2xl flex items-center justify-center">
+            <img src="/images/captionhype/logo-plain.jpg" alt="" className="w-8 h-8 object-contain" />
           </div>
           <span className="text-2xl font-black tracking-tighter text-[#853dc1] uppercase">CaptionHype</span>
         </div>
@@ -119,9 +119,9 @@ const CaptionHype: React.FC = () => {
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#6b1ea7]">For businesses, creators, and everyday posters</span>
             </div>
 
-            <h1 className="text-6xl md:text-[88px] font-serif leading-[1.08] tracking-tighter mb-8 text-[#171837]">
+            <h1 className="text-6xl md:text-[88px] font-serif leading-[1.08] tracking-normal mb-8 text-[#171837]">
               Your photo deserves <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#853dc1] via-[#fd42e6] to-[#7c3aed] italic">better caption.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#853dc1] via-[#fd42e6] to-[#7c3aed] italic">better captions.</span>
             </h1>
 
             <p className="text-lg md:text-[19px] text-[#4c4352] max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
@@ -129,7 +129,7 @@ const CaptionHype: React.FC = () => {
             </p>
 
             <div className="flex flex-col items-center gap-5 mb-12">
-              <button className="bg-[#853dc1] text-white px-10 py-4 rounded-full text-base font-bold shadow-[0_20px_50px_rgba(133,61,193,0.3)] hover:bg-[#722eb0] transition-all hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(133,61,193,0.4)]">
+              <button className="bg-[#853dc1] text-white px-10 py-4 rounded-full text-base font-bold hover:bg-[#722eb0] transition-all hover:-translate-y-1">
                 Get the app
               </button>
               <p className="text-[11px] font-bold text-black/40 tracking-[0.2em] uppercase">Free to start. No sign up required.</p>
@@ -176,7 +176,7 @@ const CaptionHype: React.FC = () => {
               }
             ].map((step, i) => (
               <div key={i} className={`reveal stagger-${i + 1}`}>
-                <div className={`w-16 h-16 ${step.color} rounded-[22px] flex items-center justify-center mb-7 shadow-sm`}>
+                <div className={`w-16 h-16 ${step.color} rounded-[22px] flex items-center justify-center mb-7`}>
                   <step.icon size={28} />
                 </div>
                 <h3 className="text-2xl font-medium mb-4 tracking-tight text-[#171837]">{step.title}</h3>
@@ -240,12 +240,10 @@ const CaptionHype: React.FC = () => {
 
             {/* Formats Card */}
             <div className="md:col-span-8 bg-white rounded-[40px] p-10 md:p-12 reveal stagger-3 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-purple-50 flex flex-col justify-center">
-              <div className="flex items-center gap-5 mb-7">
-                <div className="w-14 h-14 bg-purple-50 rounded-[20px] flex items-center justify-center text-[#853dc1]">
-                  <MessageSquare size={28} strokeWidth={2.5} />
-                </div>
-                <h3 className="text-2xl font-black tracking-tight text-[#171837]">Short or long</h3>
+              <div className="w-14 h-14 bg-purple-50 rounded-[20px] flex items-center justify-center mb-9 text-[#853dc1]">
+                <MessageSquare size={28} strokeWidth={2.5} />
               </div>
+              <h3 className="text-2xl font-black mb-4 tracking-tight text-[#171837]">Short or long</h3>
               <p className="text-[#4c4352] leading-relaxed text-lg font-medium max-w-xl">
                 Need something punchy for TikTok? A full caption for Instagram? Pick your format before you generate.
               </p>
@@ -294,7 +292,7 @@ const CaptionHype: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-5 bg-white border-2 border-neutral-200 rounded-[24px] text-lg font-black text-black hover:bg-neutral-50 transition-all shadow-sm">
+              <button className="w-full py-5 bg-white border-2 border-neutral-200 rounded-[24px] text-lg font-black text-black hover:border-[#853dc1] hover:text-[#853dc1] transition-all">
                 Download free
               </button>
             </div>
@@ -340,8 +338,8 @@ const CaptionHype: React.FC = () => {
                 One photo. <br className="hidden md:block" /> One caption. <br className="hidden md:block" /> Post every day.
               </p>
               <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 text-[11px] font-medium uppercase tracking-[0.3em] md:gap-x-16 md:text-[12px] md:tracking-[0.4em]">
-                <Link to="/privacy" className="hover:text-purple-200 transition-colors">Privacy Policy</Link>
-                <Link to="/terms" className="hover:text-purple-200 transition-colors">Terms</Link>
+                <Link to="/captionhype/privacy" className="hover:text-purple-200 transition-colors">Privacy Policy</Link>
+                <Link to="/captionhype/terms" className="hover:text-purple-200 transition-colors">Terms</Link>
                 <a href="mailto:captionhype@hyperlandhq.com" className="hover:text-purple-200 transition-colors">Contact</a>
               </div>
             </div>
