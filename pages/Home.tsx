@@ -10,6 +10,14 @@ const Home: React.FC = () => {
 
   const products = [
     {
+      name: "CaptionHype",
+      description: "The purpose-built design platform for every social media person. Generate captions and enhance photos in seconds.",
+      color: "bg-[#853dc1]",
+      textColor: "text-white",
+      large: true,
+      image: "/images/captionhype/hero below.png",
+    },
+    {
       name: "Caselify",
       description:
         "Integrated case management platform for legal practitioners and justice systems. Reimagined for modern efficiency.",
@@ -21,15 +29,6 @@ const Home: React.FC = () => {
       description: "Simple tool for managing products, prices, and stock levels for small teams. Focus on what sells.",
       color: "bg-white",
       textColor: "text-black",
-    },
-    {
-      name: "Jotta Note",
-      description:
-        "Keep tabs of ideas or jot things that pop in your mind while browsing the web. Group these notes under projects for total clarity.",
-      color: "bg-[#0E9D44]",
-      textColor: "text-white",
-      large: true,
-      image: "https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?auto=format&fit=crop&q=80&w=2070",
     },
     {
       name: "Your Product",
@@ -180,30 +179,6 @@ const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            {/* CaptionHype */}
-            <div className="bg-[#853dc1] p-12 rounded-lg flex flex-col justify-between group reveal">
-              <div>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg">
-                    <img src="/images/captionhype/logo-plain.jpg" alt="" className="w-8 h-8 object-contain" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-white">CaptionHype</h3>
-                </div>
-                <p className="text-white/80 text-lg max-w-sm leading-relaxed">
-                  The purpose-built design platform for every social media person. Generate captions and enhance photos in seconds.
-                </p>
-              </div>
-              <div className="mt-12">
-                <div className="w-full h-[1px] bg-white/20 mb-8"></div>
-                <Link
-                  to="/captionhype"
-                  className="text-[10px] font-bold text-white uppercase tracking-[0.2em] flex items-center group-hover:text-purple-200 transition-colors"
-                >
-                  VIEW CASE STUDY <ArrowRight size={14} className="ml-2 -rotate-45" />
-                </Link>
-              </div>
-            </div>
-
             {/* Caselify */}
             <div className="bg-[#1A1A1A] p-12 rounded-lg flex flex-col justify-between group reveal">
               <div>
@@ -215,12 +190,14 @@ const Home: React.FC = () => {
               </div>
               <div>
                 <div className="w-full h-[1px] bg-neutral-800 mb-8"></div>
-                <Link
-                  to="/works"
+                <a
+                  href="https://caselify.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[10px] font-bold text-white uppercase tracking-[0.2em] flex items-center group-hover:text-primary transition-colors"
                 >
-                  VIEW DETAILS <ArrowRight size={14} className="ml-2 -rotate-45" />
-                </Link>
+                  GO TO WEBSITE <ArrowRight size={14} className="ml-2 -rotate-45" />
+                </a>
               </div>
             </div>
 
@@ -234,41 +211,43 @@ const Home: React.FC = () => {
               </div>
               <div>
                 <div className="w-full h-[1px] bg-neutral-100 mb-8"></div>
-                <Link
-                  to="/products"
+                <a
+                  href="https://eazysales.online/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[10px] font-bold text-black uppercase tracking-[0.2em] flex items-center group-hover:text-primary transition-colors"
                 >
-                  LEARN MORE <ArrowRight size={14} className="ml-2 -rotate-45" />
-                </Link>
+                  GO TO WEBSITE <ArrowRight size={14} className="ml-2 -rotate-45" />
+                </a>
               </div>
             </div>
           </div>
-z
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Jotta Note - Spans 2 columns */}
+            {/* CaptionHype - Spans 2 columns */}
             <div className="lg:col-span-2 bg-[#1A1A1A] rounded-lg overflow-hidden flex flex-col md:flex-row reveal">
               <div className="flex-1 min-h-[300px]">
-                <img src="/images/jotta-note.png" alt="Jotta Note" className="w-full h-full object-cover" />
+                <img src="/images/captionhype/hero below.png" alt="CaptionHype" className="w-full h-full object-cover" />
               </div>
-              <div className="flex-1 bg-[#0E9D44] p-12 flex flex-col justify-between">
+              <div className="flex-1 bg-[#853dc1] p-12 flex flex-col justify-between">
                 <div>
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg mb-8">
+                    <img src="/images/captionhype/logo-plain.jpg" alt="" className="w-8 h-8 object-contain" />
+                  </div>
                   <h3 className="text-4xl font-bold text-white mb-6 leading-tight">
-                    Jotta
+                    Caption
                     <br />
-                    Note
+                    Hype
                   </h3>
-                  <p className="text-white text-lg leading-relaxed">
-                    Keep tabs of ideas or jot things that pop in your mind while browsing the web. Group these notes
-                    under projects for total clarity..
+                  <p className="text-white/90 text-lg leading-relaxed">
+                    The purpose-built design platform for every social media person. Generate captions and enhance photos in seconds.
                   </p>
                 </div>
                 <Link
-                  to={jottaNoteLink}
-                  target="_blank"
-                  rel="noopener"
+                  to="/captionhype"
                   className="text-[10px] font-bold text-white uppercase tracking-[0.2em] flex items-center mt-12 hover:underline underline-offset-8"
                 >
-                  TRY JOTTA <ArrowRight size={14} className="ml-2 -rotate-45" />
+                  GO TO WEBSITE <ArrowRight size={14} className="ml-2 -rotate-45" />
                 </Link>
               </div>
             </div>
