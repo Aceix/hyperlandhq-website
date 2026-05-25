@@ -4,6 +4,7 @@ import { Zap, Hash, Share2, Star, Check, Smartphone, MessageSquare, Copy } from 
 
 // VERSION: 2.0 - FIGMA IMPLEMENTATION
 const CaptionHype: React.FC = () => {
+  const appStoreUrl = 'https://apps.apple.com/us/app/captionhype-photo-captions/id6766516419';
   const [isYearly, setIsYearly] = useState(true);
   const monthlyPrice = 2.99;
   const yearlyPrice = 29.99;
@@ -83,9 +84,14 @@ const CaptionHype: React.FC = () => {
           <a href="#pricing" className="flex-1 py-3 px-4 rounded-full border border-[#853dc1] text-[#853dc1] text-sm font-bold hover:bg-white transition-all shadow-sm text-center">
             Pricing
           </a>
-          <button className="flex-1 py-3 px-4 rounded-full bg-gradient-to-b from-[#853dc1] to-[#4c1d95] text-white text-sm font-bold shadow-lg shadow-purple-200 hover:scale-[1.02] active:scale-[0.98] transition-all">
+          <a
+            href={appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 py-3 px-4 rounded-full bg-gradient-to-b from-[#853dc1] to-[#4c1d95] text-white text-sm font-bold shadow-lg shadow-purple-200 hover:scale-[1.02] active:scale-[0.98] transition-all text-center"
+          >
             Try for free
-          </button>
+          </a>
         </div>
 
         <nav className="min-h-0 flex-1 space-y-6">
@@ -128,7 +134,14 @@ const CaptionHype: React.FC = () => {
             </div>
             <span className="font-black text-[#853dc1] uppercase tracking-tighter">CaptionHype</span>
           </div>
-          <button className="bg-[#853dc1] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg shadow-purple-100">Get App</button>
+          <a
+            href={appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#853dc1] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg shadow-purple-100"
+          >
+            Get App
+          </a>
         </div>
 
         {/* Hero Section */}
@@ -151,9 +164,14 @@ const CaptionHype: React.FC = () => {
             </p>
 
             <div className="flex flex-col items-center gap-5 mb-12">
-              <button className="bg-[#853dc1] text-white px-10 py-4 rounded-full text-base font-bold hover:bg-[#722eb0] transition-all hover:-translate-y-1">
+              <a
+                href={appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#853dc1] text-white px-10 py-4 rounded-full text-base font-bold hover:bg-[#722eb0] transition-all hover:-translate-y-1"
+              >
                 Get the app
-              </button>
+              </a>
               <p className="text-[11px] font-bold text-black/40 tracking-[0.2em] uppercase">Free to start. No sign up required.</p>
             </div>
           </div>
@@ -320,9 +338,14 @@ const CaptionHype: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <button className="w-full rounded-[18px] border-2 border-neutral-200 bg-white py-4 text-base font-black text-black transition-all hover:border-[#853dc1] hover:text-[#853dc1] sm:rounded-[24px] sm:py-5 sm:text-lg">
+              <a
+                href={appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-[18px] border-2 border-neutral-200 bg-white py-4 text-center text-base font-black text-black transition-all hover:border-[#853dc1] hover:text-[#853dc1] sm:rounded-[24px] sm:py-5 sm:text-lg"
+              >
                 Download free
-              </button>
+              </a>
             </div>
 
             {/* Pro Card */}
@@ -346,9 +369,14 @@ const CaptionHype: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <button className="relative z-10 w-full rounded-[18px] bg-white py-4 text-base font-black text-[#853dc1] shadow-2xl transition-all hover:bg-purple-50 sm:rounded-[24px] sm:py-5 sm:text-lg">
+              <a
+                href={appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative z-10 block w-full rounded-[18px] bg-white py-4 text-center text-base font-black text-[#853dc1] shadow-2xl transition-all hover:bg-purple-50 sm:rounded-[24px] sm:py-5 sm:text-lg"
+              >
                 Upgrade in-app
-              </button>
+              </a>
             </div>
           </div>
         </section>
