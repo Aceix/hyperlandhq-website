@@ -2,11 +2,21 @@ import React, { useState } from "react";
 import { ArrowRight, ChevronRight, Plus, Minus, CheckCircle2, Sparkles, Layout, Box, Code } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
+import { ScrollRevealText } from "../components/ScrollRevealText";
 
 const Home: React.FC = () => {
   const jottaNoteLink = "https://chromewebstore.google.com/detail/jlfafdancjekjfhmajfggchmpbgolefk?utm_source=item-share-cb";
 
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const shipped: { name: string; sector: string; engagement: string; to?: string; href?: string }[] = [
+    { name: "CaptionHype", sector: "Social media", engagement: "Design & build", to: "/captionhype" },
+    { name: "Caselify", sector: "Legal tech", engagement: "Product & platform", href: "https://caselify.com/" },
+    { name: "EazySales", sector: "Commerce", engagement: "MVP to launch", href: "https://eazysales.online/" },
+    { name: "Jotta Note", sector: "Productivity", engagement: "Design & build", href: jottaNoteLink },
+    { name: "CareFusion", sector: "Health tech", engagement: "Product design" },
+    { name: "Your product", sector: "Next in line", engagement: "Let's talk", to: "/contact" },
+  ];
 
   const products = [
     {
@@ -96,46 +106,100 @@ const Home: React.FC = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-24 reveal">
-            <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.3em] mb-12 block">
-              TRUSTED BY 20+ COMPANIES
-            </span>
-            <h1 className="text-4xl md:text-[40px] font-medium tracking-tight leading-[1.1] max-w-4xl">
-              <span className="text-neutral-400">Design, develop, and scale products</span> with speed and strong
-              foundations for companies that want to move fast and build properly.
-            </h1>
+      <section className="bg-[#FAFAF8] pt-32 md:pt-40 px-1.5">
+        <div className="max-w-[660px] mx-auto px-5 flex flex-col items-center text-center gap-5 reveal">
+          <h1 className="text-[34px] md:text-[52px] font-medium leading-[1.1] tracking-[-0.03em] text-neutral-900 text-balance">
+            Design, develop and scale <span className="md:block">products built properly</span>
+          </h1>
+          <p className="text-[15px] md:text-base leading-[1.7] text-neutral-500 max-w-[600px]">
+            HyperlandHQ is a product-focused studio creating tools that matter. We understand the friction in
+            productivity, business, and legal tech, then solve it with precision.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center bg-neutral-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-neutral-800 transition-colors text-[13px] whitespace-nowrap"
+            >
+              Contact us
+            </Link>
+            <Link
+              to="/works"
+              className="group inline-flex items-center justify-center gap-2 text-neutral-900 px-5 py-2.5 rounded-lg font-medium hover:bg-white transition-colors text-[13px] whitespace-nowrap"
+            >
+              See recent work
+              <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-end items-end gap-12 reveal stagger-1 mb-20">
-            <div className="max-w-md">
-              <p className="text-lg text-neutral-600 mb-10 leading-relaxed font-regular">
-                HyperlandHQ is a product-focused studio creating tools that matter. We understand the friction in
-                productivity, business, and legal tech, then solve it with precision.
-              </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button
-                  to="/contact"
-                  className="bg-neutral-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-neutral-800 transition-all text-sm uppercase tracking-wider whitespace-nowrap"
-                >
-                  Contact Us
-                </Button>
-                <Button
-                  to="/works"
-                  variant="secondary"
-                  className="bg-brand-accent text-neutral-900 px-8 py-4 rounded-lg font-bold hover:bg-neutral-200 transition-all text-sm uppercase tracking-wider whitespace-nowrap"
-                >
-                  See recent work
-                </Button>
-              </div>
-            </div>
+          <p className="text-[13px] leading-[26px] text-neutral-500 mt-2 max-w-[420px]">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary align-middle mr-2" />
+            Trusted by 20+ companies in productivity, legal and commerce
+          </p>
+        </div>
+
+        {/* Partner / product logo grid */}
+        <div className="pt-16 md:pt-20 pb-1.5 reveal stagger-1">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5">
+            {shipped.map((item) => {
+              const inner = (
+                <>
+                  <span className="text-xs text-neutral-400 leading-7 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {item.sector}
+                  </span>
+                  <span className="flex items-center gap-2 text-lg font-semibold tracking-tight text-neutral-900">
+                    <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                    {item.name}
+                  </span>
+                  <span className="text-xs text-neutral-400 leading-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {item.engagement}
+                  </span>
+                </>
+              );
+
+              const cardClass =
+                "group bg-white rounded-lg h-[150px] md:h-[175px] px-6 py-4 flex flex-col items-center justify-between text-center transition-colors duration-300 hover:bg-white";
+
+              if (item.to) {
+                return (
+                  <Link key={item.name} to={item.to} className={cardClass}>
+                    {inner}
+                  </Link>
+                );
+              }
+              if (item.href) {
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cardClass}
+                  >
+                    {inner}
+                  </a>
+                );
+              }
+              return (
+                <div key={item.name} className={cardClass}>
+                  {inner}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
+      {/* Statement Section */}
+      <section className="bg-[#FAFAF8] px-6 pt-28 pb-28 md:pt-40 md:pb-40">
+        <ScrollRevealText
+          className="max-w-[580px] mx-auto text-center text-2xl md:text-[32px] font-medium leading-[1.25] tracking-[-0.02em]"
+          text="Most products don't fail on features. They fail on foundations. Rushed builds mean slower releases, mounting bugs, and users who quietly leave — not because your idea lacks value, but because the product can't carry it yet. We can help."
+        />
+      </section>
+
       {/* Hero Marquee Section */}
-      <section className="pb-32 overflow-hidden border-b border-neutral-100">
+      <section className="pt-24 pb-32 overflow-hidden border-b border-neutral-100">
         <div className="flex whitespace-nowrap animate-marquee hover:[animation-play-state:paused]">
           {[1, 2].map((group) => (
             <div key={group} className="flex space-x-6 px-3">
