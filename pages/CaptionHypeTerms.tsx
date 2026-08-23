@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 const CaptionHypeTerms: React.FC = () => {
   return (
     <div className="min-h-screen bg-white px-6 py-20 font-sans text-[#171837] md:px-20">
+      <SEO
+        title="Terms of Use | CaptionHype"
+        description="Read the Terms of Use governing your access to and use of CaptionHype, a content creation app by HyperlandHQ."
+        path="/captionhype/terms"
+      />
       <div className="mx-auto max-w-3xl">
         <Link to="/captionhype" className="mb-12 inline-flex text-sm font-medium text-[#853dc1] hover:underline">
           Back to CaptionHype

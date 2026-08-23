@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { ThemeProvider } from './components/ThemeContext';
 import Home from './pages/Home';
@@ -12,6 +12,7 @@ import Terms from './pages/Terms';
 import CaptionHype from './pages/CaptionHype';
 import CaptionHypePrivacy from './pages/CaptionHypePrivacy';
 import CaptionHypeTerms from './pages/CaptionHypeTerms';
+import NotFound from './pages/NotFound';
 
 // Scroll to top and trigger page animation
 const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -33,23 +34,22 @@ const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <Router>
-        <Layout>
-          <PageWrapper>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/works" element={<Products />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/captionhype" element={<CaptionHype />} />
-              <Route path="/captionhype/privacy" element={<CaptionHypePrivacy />} />
-              <Route path="/captionhype/terms" element={<CaptionHypeTerms />} />
-            </Routes>
-          </PageWrapper>
-        </Layout>
-      </Router>
+      <Layout>
+        <PageWrapper>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/works" element={<Products />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/captionhype" element={<CaptionHype />} />
+            <Route path="/captionhype/privacy" element={<CaptionHypePrivacy />} />
+            <Route path="/captionhype/terms" element={<CaptionHypeTerms />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </PageWrapper>
+      </Layout>
     </ThemeProvider>
   );
 };

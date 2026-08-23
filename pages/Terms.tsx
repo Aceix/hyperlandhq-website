@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { SEO } from '../components/SEO';
 
 const Terms: React.FC = () => {
   useEffect(() => {
@@ -24,6 +25,11 @@ const Terms: React.FC = () => {
 
   return (
     <div className="bg-white px-6 pt-32 pb-24 md:pt-40 md:pb-40">
+      <SEO
+        title="Terms of Service | HyperlandHQ"
+        description="Read the Terms of Service governing your use of the HyperlandHQ website and services."
+        path="/terms"
+      />
       <div className="max-w-3xl mx-auto">
         <header className="mb-20 reveal">
           <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.4em] block mb-6">

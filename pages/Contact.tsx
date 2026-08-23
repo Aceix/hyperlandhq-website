@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from '../components/Button';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -38,6 +39,11 @@ const Contact: React.FC = () => {
 
   return (
     <div className="bg-white pt-24 pb-16 md:pt-32 md:pb-24 px-6 md:px-12">
+      <SEO
+        title="Contact | HyperlandHQ"
+        description="Get in touch with HyperlandHQ to discuss your next MVP, product build, or design partnership."
+        path="/contact"
+      />
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-24">
 
@@ -61,7 +67,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-[10px] font-bold text-neutral-900 uppercase tracking-widest">Want to have a chat with the founder?</h3>
+                  <h2 className="text-[10px] font-bold text-neutral-900 uppercase tracking-widest">Want to have a chat with the founder?</h2>
                   <p className="text-[10px] text-neutral-400 uppercase tracking-[0.2em] mt-1">PEARL / CO-FOUNDER</p>
                 </div>
               </div>

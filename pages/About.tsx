@@ -3,10 +3,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
+import { SEO } from '../components/SEO';
 
 const About: React.FC = () => {
   return (
     <div className="bg-white px-6 pt-24 pb-6 md:pt-32 md:pb-10">
+      <SEO
+        title="About Us | HyperlandHQ"
+        description="Meet the team behind HyperlandHQ — a technical product studio helping founders design, build, and scale software with precision."
+        path="/about"
+      />
       {/* Immersive Hero Section */}
       <section className="relative h-[80vh] min-h-[500px] md:h-[90vh] md:min-h-[700px] w-full rounded-lg overflow-hidden group">
         <div className="absolute inset-0">
@@ -146,7 +152,7 @@ const About: React.FC = () => {
                 <img
                   src="/images/kwesi.jpeg"
                   className="w-full h-full object-cover grayscale"
-                  alt="Robert"
+                  alt="Kwesi, HyperlandHQ co-founder and engineering director"
                 />
               </div>
               <p className="text-neutral-500 text-sm leading-relaxed mb-auto">
@@ -164,7 +170,7 @@ const About: React.FC = () => {
                 <img
                   src="/images/pearl-pic.jpg"
                   className="w-full h-full object-cover grayscale"
-                  alt="Adelina"
+                  alt="Pearl, HyperlandHQ co-founder and design director"
                 />
               </div>
               <p className="text-neutral-500 text-sm leading-relaxed mb-auto">

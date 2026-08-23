@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 const Products: React.FC = () => {
   const products = [
@@ -38,6 +39,11 @@ const Products: React.FC = () => {
 
   return (
     <div className="bg-white pt-32 pb-24 px-6 md:px-12">
+      <SEO
+        title="Our Work | HyperlandHQ Software Studio"
+        description="See the products HyperlandHQ has designed and built — CaptionHype, Caselify, EazySales, and CareFusion — spanning social media, legal tech, commerce, and health tech."
+        path="/works"
+      />
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="mb-12 md:mb-24 reveal">

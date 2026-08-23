@@ -1,0 +1,17 @@
+{
+  "name": "HyperlandHQ | Focused Software Products",
+  "short_name": "HyperlandHQ",
+  "description": "HyperlandHQ is a product-focused software studio that designs, builds, and scales web and mobile products.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#148B3B",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

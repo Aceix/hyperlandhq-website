@@ -3,6 +3,7 @@ import { ArrowRight, ChevronRight, Plus, Minus, CheckCircle2, Sparkles, Layout, 
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import { ScrollRevealText } from "../components/ScrollRevealText";
+import { SEO, SITE_URL } from "../components/SEO";
 
 const Home: React.FC = () => {
   const jottaNoteLink = "https://chromewebstore.google.com/detail/jlfafdancjekjfhmajfggchmpbgolefk?utm_source=item-share-cb";
@@ -103,8 +104,37 @@ const Home: React.FC = () => {
     },
   ];
 
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "HyperlandHQ",
+      url: SITE_URL,
+      description:
+        "HyperlandHQ is a product-focused software studio that designs, builds, and scales web and mobile products for startups in productivity, legal tech, and commerce.",
+      email: "hello@hyperlandhq.com",
+      sameAs: [
+        "https://twitter.com/hyperlandhq",
+        "https://github.com/hyperlandhq",
+        "https://linkedin.com/company/hyperlandhq",
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "HyperlandHQ",
+      url: SITE_URL,
+    },
+  ];
+
   return (
     <div className="bg-white">
+      <SEO
+        title="HyperlandHQ | Product Design & Development Studio"
+        description="HyperlandHQ is a product-focused software studio that designs, builds, and scales web and mobile products for startups in productivity, legal tech, and commerce."
+        path="/"
+        jsonLd={jsonLd}
+      />
       {/* Hero Section */}
       <section className="bg-[#FAFAF8] pt-32 md:pt-40 px-1.5">
         <div className="max-w-[660px] mx-auto px-5 flex flex-col items-center text-center gap-5 reveal">
@@ -204,16 +234,16 @@ const Home: React.FC = () => {
           {[1, 2].map((group) => (
             <div key={group} className="flex space-x-6 px-3">
               <div className="w-125 aspect-16/10 rounded-lg overflow-hidden bg-neutral-100 shrink-0">
-                <img src="/images/carefusion.png" className="w-full h-full object-cover" alt="Product" />
+                <img src="/images/carefusion.png" className="w-full h-full object-cover" alt="CareFusion healthtech product screenshot" />
               </div>
               <div className="w-150 aspect-16/10 rounded-lg overflow-hidden bg-neutral-100 shrink-0">
-                <img src="/images/caselify.png" className="w-full h-full object-cover" alt="Product" />
+                <img src="/images/caselify.png" className="w-full h-full object-cover" alt="Caselify legal case management platform screenshot" />
               </div>
               <div className="w-125 aspect-16/10 rounded-lg overflow-hidden bg-neutral-100 shrink-0">
-                <img src="/images/carefusion.png" className="w-full h-full object-cover" alt="Product" />
+                <img src="/images/jotta-note.png" className="w-full h-full object-cover" alt="Jotta Note productivity extension screenshot" />
               </div>
               <div className="w-150 aspect-16/10 rounded-lg overflow-hidden bg-neutral-100 shrink-0">
-                <img src="/images/eazysales.png" className="w-full h-full object-cover" alt="Product" />
+                <img src="/images/eazysales.png" className="w-full h-full object-cover" alt="EazySales inventory management product screenshot" />
               </div>
             </div>
           ))}
@@ -490,7 +520,7 @@ const Home: React.FC = () => {
             <div className="absolute inset-0 opacity-40">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
-                alt="Team"
+                alt="Team collaborating at HyperlandHQ"
                 className="w-full h-full object-cover"
               />
             </div>

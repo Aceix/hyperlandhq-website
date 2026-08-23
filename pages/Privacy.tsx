@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { SEO } from '../components/SEO';
 
 const Privacy: React.FC = () => {
   useEffect(() => {
@@ -24,6 +25,11 @@ const Privacy: React.FC = () => {
 
   return (
     <div className="bg-white px-6 pt-32 pb-24 md:pt-40 md:pb-40">
+      <SEO
+        title="Privacy Policy | HyperlandHQ"
+        description="Read HyperlandHQ's Privacy Policy to learn how we collect, use, and safeguard your information."
+        path="/privacy"
+      />
       <div className="max-w-3xl mx-auto">
         <header className="mb-20 reveal">
           <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.4em] block mb-6">

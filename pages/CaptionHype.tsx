@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, Hash, Share2, Star, Check, Smartphone, MessageSquare, Copy } from 'lucide-react';
+import { SEO, SITE_URL } from '../components/SEO';
 
 // VERSION: 2.0 - FIGMA IMPLEMENTATION
 const CaptionHype: React.FC = () => {
@@ -62,8 +63,32 @@ const CaptionHype: React.FC = () => {
     `,
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "CaptionHype",
+    applicationCategory: "PhotoApplication",
+    operatingSystem: "iOS",
+    description:
+      "CaptionHype helps creators, businesses, and brands generate engaging captions and enhance photos in seconds with AI.",
+    url: `${SITE_URL}/captionhype`,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans text-[#171837] selection:bg-purple-100 lg:h-dvh lg:overflow-hidden">
+      <SEO
+        title="CaptionHype | AI Caption Generator & Photo Enhancer"
+        description="CaptionHype helps creators, businesses, and brands generate engaging captions and enhance photos in seconds with AI. Free to start, no sign up required."
+        path="/captionhype"
+        image={`${SITE_URL}/images/captionhype/hero%20below.png`}
+        type="product"
+        jsonLd={jsonLd}
+      />
       {/* Sidebar - Fixed Left */}
       <aside className="fixed inset-y-0 left-0 z-50 hidden h-dvh w-[315px] flex-col overflow-hidden border-r border-purple-100/30 bg-[#853dc1]/5 p-8 lg:flex">
         <div className="mb-10 flex items-center gap-3">
