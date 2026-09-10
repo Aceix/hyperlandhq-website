@@ -7,8 +7,9 @@ interface ScrollRevealTextProps {
 
 /**
  * Statement paragraph that fills in word by word as the section scrolls through
- * the viewport. Each word is rendered twice: a muted base layer and a dark layer
- * on top whose opacity is driven by scroll progress.
+ * the viewport. Each word is a single node whose colour interpolates from
+ * neutral-300 to neutral-900 based on scroll progress — single nodes keep
+ * copy-paste and screen readers reading the sentence once.
  */
 export const ScrollRevealText: React.FC<ScrollRevealTextProps> = ({ text, className = "" }) => {
   const ref = useRef<HTMLParagraphElement>(null);
@@ -31,12 +32,12 @@ export const ScrollRevealText: React.FC<ScrollRevealTextProps> = ({ text, classN
 
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      // Starts filling when the text enters the lower third, completes once it
-      // has travelled past the middle of the screen.
-      const start = vh * 0.95;
-      const end = vh * 0.3;
-      const distance = Math.max(start - end + rect.height, 1);
-      const next = (start - rect.top) / distance;
+      // Fill as the block's centre travels from the lower viewport up to just
+      // above half screen height — complete once the centre passes ~45% vh.
+      const center = rect.top + rect.height / 2;
+      const start = vh * 0.9;
+      const end = vh * 0.45;
+      const next = (start - center) / Math.max(start - end, 1);
 
       setProgress(Math.min(1, Math.max(0, next)));
     };
@@ -56,25 +57,20 @@ export const ScrollRevealText: React.FC<ScrollRevealTextProps> = ({ text, classN
     };
   }, []);
 
-  // Slight overshoot so the last words still finish before the section leaves.
-  const head = progress * (words.length + 2);
+  const head = progress * words.length;
+
+  // neutral-300 (#d4d4d4) -> neutral-900 (#171717)
+  const BASE = [212, 212, 212];
+  const DARK = [23, 23, 23];
 
   return (
     <p ref={ref} className={className}>
-      <span className="sr-only">{text}</span>
       {words.map((word, i) => {
-        const opacity = Math.min(1, Math.max(0, head - i));
+        const t = Math.min(1, Math.max(0, head - i));
+        const c = BASE.map((b, idx) => Math.round(b + (DARK[idx] - b) * t));
         return (
           <React.Fragment key={`${word}-${i}`}>
-            <span className="relative inline-block" aria-hidden="true">
-              <span className="text-neutral-300">{word}</span>
-              <span
-                className="absolute inset-0 text-neutral-900 transition-opacity duration-200 ease-out"
-                style={{ opacity }}
-              >
-                {word}
-              </span>
-            </span>
+            <span style={{ color: `rgb(${c[0]}, ${c[1]}, ${c[2]})` }}>{word}</span>
             {i < words.length - 1 ? " " : null}
           </React.Fragment>
         );

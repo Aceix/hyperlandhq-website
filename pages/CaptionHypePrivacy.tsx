@@ -8,10 +8,10 @@ const CaptionHypePrivacy: React.FC = () => {
       <SEO
         title="Privacy Policy | CaptionHype"
         description="Learn how CaptionHype collects, uses, shares, and protects your information across the app, website, and related services."
-        path="/captionhype/privacy"
+        path="/works/caption-hype/privacy"
       />
       <div className="mx-auto max-w-3xl">
-        <Link to="/captionhype" className="mb-12 inline-flex text-sm font-medium text-[#853dc1] hover:underline">
+        <Link to="/works/caption-hype" className="mb-12 inline-flex text-sm font-medium text-[#853dc1] hover:underline">
           Back to CaptionHype
         </Link>
 

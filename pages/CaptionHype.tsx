@@ -71,7 +71,7 @@ const CaptionHype: React.FC = () => {
     operatingSystem: "iOS",
     description:
       "CaptionHype helps creators, businesses, and brands generate engaging captions and enhance photos in seconds with AI.",
-    url: `${SITE_URL}/captionhype`,
+    url: `${SITE_URL}/works/caption-hype`,
     offers: {
       "@type": "Offer",
       price: "0",
@@ -84,7 +84,7 @@ const CaptionHype: React.FC = () => {
       <SEO
         title="CaptionHype | AI Caption Generator & Photo Enhancer"
         description="CaptionHype helps creators, businesses, and brands generate engaging captions and enhance photos in seconds with AI. Free to start, no sign up required."
-        path="/captionhype"
+        path="/works/caption-hype"
         image={`${SITE_URL}/images/captionhype/hero%20below.png`}
         type="product"
         jsonLd={jsonLd}
@@ -419,8 +419,8 @@ const CaptionHype: React.FC = () => {
                 One photo. <br className="hidden md:block" /> One caption. <br className="hidden md:block" /> Post every day.
               </p>
               <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 text-[11px] font-medium uppercase tracking-[0.3em] md:gap-x-16 md:text-[12px] md:tracking-[0.4em]">
-                <Link to="/captionhype/privacy" className="hover:text-purple-200 transition-colors">Privacy Policy</Link>
-                <Link to="/captionhype/terms" className="hover:text-purple-200 transition-colors">Terms</Link>
+                <Link to="/works/caption-hype/privacy" className="hover:text-purple-200 transition-colors">Privacy Policy</Link>
+                <Link to="/works/caption-hype/terms" className="hover:text-purple-200 transition-colors">Terms</Link>
                 <a href="mailto:captionhype@hyperlandhq.com" className="hover:text-purple-200 transition-colors">Contact</a>
               </div>
             </div>

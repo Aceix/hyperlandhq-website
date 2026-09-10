@@ -10,12 +10,12 @@ const Home: React.FC = () => {
 
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-  const shipped: { name: string; sector: string; engagement: string; to?: string; href?: string }[] = [
-    { name: "CaptionHype", sector: "Social media", engagement: "Design & build", to: "/captionhype" },
-    { name: "Caselify", sector: "Legal tech", engagement: "Product & platform", href: "https://caselify.com/" },
-    { name: "EazySales", sector: "Commerce", engagement: "MVP to launch", href: "https://eazysales.online/" },
-    { name: "Jotta Note", sector: "Productivity", engagement: "Design & build", href: jottaNoteLink },
-    { name: "CareFusion", sector: "Health tech", engagement: "Product design" },
+  const shipped: { name: string; sector: string; engagement: string; to?: string; href?: string; image?: string }[] = [
+    { name: "CaptionHype", sector: "Social media", engagement: "Design & build", to: "/works/caption-hype", image: "/images/captionhype/hero below.png" },
+    { name: "Caselify", sector: "Legal tech", engagement: "Product & platform", href: "https://caselify.com/", image: "/images/caselify.png" },
+    { name: "EazySales", sector: "Commerce", engagement: "MVP to launch", href: "https://eazysales.online/", image: "/images/eazysales.png" },
+    { name: "Jotta Note", sector: "Productivity", engagement: "Design & build", href: jottaNoteLink, image: "/images/jotta-note.png" },
+    { name: "CareFusion", sector: "Health tech", engagement: "Product design", image: "/images/carefusion.png" },
     { name: "Your product", sector: "Next in line", engagement: "Let's talk", to: "/contact" },
   ];
 
@@ -172,23 +172,36 @@ const Home: React.FC = () => {
         <div className="pt-16 md:pt-20 pb-1.5 reveal stagger-1">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5">
             {shipped.map((item) => {
+              const hasImage = Boolean(item.image);
               const inner = (
                 <>
-                  <span className="text-xs text-neutral-400 leading-7 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {item.sector}
-                  </span>
-                  <span className="flex items-center gap-2 text-lg font-semibold tracking-tight text-neutral-900">
-                    <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
-                    {item.name}
-                  </span>
-                  <span className="text-xs text-neutral-400 leading-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {item.engagement}
+                  {hasImage && (
+                    <>
+                      <img
+                        src={item.image}
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <span className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60" aria-hidden="true" />
+                    </>
+                  )}
+                  <span className="relative z-10 flex flex-col items-center justify-between h-full w-full py-1">
+                    <span className={`text-xs leading-7 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${hasImage ? "text-white/80" : "text-neutral-400"}`}>
+                      {item.sector}
+                    </span>
+                    <span className={`flex items-center gap-2 text-lg font-semibold tracking-tight ${hasImage ? "text-white" : "text-neutral-900"}`}>
+                      <span className="w-2 h-2 rounded-full bg-primary shrink-0 ring-1 ring-white/40" />
+                      {item.name}
+                    </span>
+                    <span className={`text-xs leading-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${hasImage ? "text-white/80" : "text-neutral-400"}`}>
+                      {item.engagement}
+                    </span>
                   </span>
                 </>
               );
 
-              const cardClass =
-                "group bg-white rounded-lg h-[150px] md:h-[175px] px-6 py-4 flex flex-col items-center justify-between text-center transition-colors duration-300 hover:bg-white";
+              const cardClass = `group relative overflow-hidden rounded-lg h-[150px] md:h-[175px] px-6 py-4 flex flex-col items-center justify-between text-center transition-colors duration-300 ${hasImage ? "bg-neutral-900" : "bg-white hover:bg-white"}`;
 
               if (item.to) {
                 return (
@@ -338,7 +351,7 @@ const Home: React.FC = () => {
                   </p>
                 </div>
                 <Link
-                  to="/captionhype"
+                  to="/works/caption-hype"
                   className="text-[10px] font-bold text-white uppercase tracking-[0.2em] flex items-center mt-12 hover:underline underline-offset-8"
                 >
                   GO TO WEBSITE <ArrowRight size={14} className="ml-2 -rotate-45" />

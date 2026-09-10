@@ -27,6 +27,10 @@ const Navbar: React.FC = () => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Works', path: '/works' },
@@ -37,44 +41,51 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? 'bg-white/80 backdrop-blur-md border-b border-neutral-100 h-16'
-        : 'bg-transparent h-20'
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold tracking-tight text-neutral-900 relative z-50">
-          Hyperland<span className="text-green-600 font-normal"> HQ</span>
-        </Link>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled
+          ? 'bg-white/80 backdrop-blur-md border-b border-neutral-100 h-16'
+          : 'bg-transparent h-20'
+          }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+          <Link to="/" className="text-xl font-bold tracking-tight text-neutral-900 relative z-50">
+            Hyperland<span className="text-green-600 font-normal"> HQ</span>
+          </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-10 absolute left-1/2 -translate-x-1/2">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-10 absolute left-1/2 -translate-x-1/2">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex items-center space-x-4">
+            {/* Mobile Nav Toggle */}
+            <button
+              className="md:hidden p-2 text-neutral-900 relative z-50"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
-              {item.name}
-            </Link>
-          ))}
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
+      </nav>
 
-        <div className="flex items-center space-x-4">
-          {/* Mobile Nav Toggle */}
-          <button
-            className="md:hidden p-2 text-neutral-900 relative z-50"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Nav Menu */}
+      {/* Mobile Nav Menu — sibling of <nav> (not a child) so the nav's
+          backdrop-blur can't become its containing block and trap it inside
+          the navbar box. z-[90] keeps it above all page content while the
+          nav bar (z-[100]) with the toggle stays clickable on top. */}
       <div
-        className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`md:hidden fixed inset-0 bg-white z-[90] transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
       >
         <div className="px-6 pt-32 flex flex-col space-y-8 h-full overflow-y-auto pb-12">
@@ -91,7 +102,7 @@ const Navbar: React.FC = () => {
           ))}
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 
@@ -136,7 +147,7 @@ const Footer: React.FC = () => {
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
-  const isCaptionHype = location.pathname.startsWith('/captionhype');
+  const isCaptionHype = location.pathname.startsWith('/works/caption-hype');
 
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">

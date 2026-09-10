@@ -10,7 +10,7 @@ const Products: React.FC = () => {
       displayName: "CaptionHype",
       tagline: "software development | ai captioning | mobile design",
       image: "/images/captionhype/hero below.png",
-      link: "/captionhype",
+      link: "/works/caption-hype",
       isInternal: true
     },
     {

@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { HelmetProvider, type HelmetServerState } from 'react-helmet-async';
@@ -17,9 +16,9 @@ const routes = [
   '/contact',
   '/privacy',
   '/terms',
-  '/captionhype',
-  '/captionhype/privacy',
-  '/captionhype/terms',
+  '/works/caption-hype',
+  '/works/caption-hype/privacy',
+  '/works/caption-hype/terms',
 ];
 
 const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');

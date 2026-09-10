@@ -8,10 +8,10 @@ const CaptionHypeTerms: React.FC = () => {
       <SEO
         title="Terms of Use | CaptionHype"
         description="Read the Terms of Use governing your access to and use of CaptionHype, a content creation app by HyperlandHQ."
-        path="/captionhype/terms"
+        path="/works/caption-hype/terms"
       />
       <div className="mx-auto max-w-3xl">
-        <Link to="/captionhype" className="mb-12 inline-flex text-sm font-medium text-[#853dc1] hover:underline">
+        <Link to="/works/caption-hype" className="mb-12 inline-flex text-sm font-medium text-[#853dc1] hover:underline">
           Back to CaptionHype
         </Link>
 

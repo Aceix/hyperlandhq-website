@@ -201,7 +201,7 @@ const About: React.FC = () => {
           <div className="grid grid-cols-2 gap-4 reveal stagger-1">
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="aspect-square bg-white rounded-lg flex items-center justify-center border border-neutral-800 italic font-serif text-2xl text-neutral-900">
-                {i === 1 ? 'Focus' : i === 2 ? 'Speed' : i === 3 ? 'Scale' : 'End'}
+                {i === 1 ? 'Focus' : i === 2 ? 'Speed' : i === 3 ? 'Grow' : 'Scale'}
               </div>
             ))}
           </div>

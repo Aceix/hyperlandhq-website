@@ -139,7 +139,7 @@ Avoid hype adjectives, exclamation marks, and generic agency filler.
 
 | Product | Link |
 |---|---|
-| CaptionHype | `/captionhype` (internal page) |
+| CaptionHype | `/works/caption-hype` (internal page) |
 | Caselify | https://caselify.com/ |
 | EazySales | https://eazysales.online/ |
 | Jotta Note | Chrome Web Store (`jottaNoteLink` in `pages/Home.tsx`) |

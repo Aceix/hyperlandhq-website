@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { ThemeProvider } from './components/ThemeContext';
 import Home from './pages/Home';
@@ -43,9 +43,13 @@ const App: React.FC = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
-            <Route path="/captionhype" element={<CaptionHype />} />
-            <Route path="/captionhype/privacy" element={<CaptionHypePrivacy />} />
-            <Route path="/captionhype/terms" element={<CaptionHypeTerms />} />
+            <Route path="/works/caption-hype" element={<CaptionHype />} />
+            <Route path="/works/caption-hype/privacy" element={<CaptionHypePrivacy />} />
+            <Route path="/works/caption-hype/terms" element={<CaptionHypeTerms />} />
+            {/* Legacy redirects — CaptionHype now lives under /works */}
+            <Route path="/captionhype" element={<Navigate to="/works/caption-hype" replace />} />
+            <Route path="/captionhype/privacy" element={<Navigate to="/works/caption-hype/privacy" replace />} />
+            <Route path="/captionhype/terms" element={<Navigate to="/works/caption-hype/terms" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </PageWrapper>
