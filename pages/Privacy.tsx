@@ -93,7 +93,7 @@ const Privacy: React.FC = () => {
           <section>
             <h2 className="text-xl font-bold text-neutral-900 mb-6 uppercase tracking-wider text-sm">6. Contact Us</h2>
             <p>
-              If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hello@hyperlandhq.com" className="text-green-600 hover:underline font-medium">hello@hyperlandhq.com</a>.
+              If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@hyperlandhq.com" className="text-green-600 hover:underline font-medium">support@hyperlandhq.com</a>.
             </p>
           </section>
         </div>

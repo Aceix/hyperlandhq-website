@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from '../components/Button';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { SEO } from '../components/SEO';
 
 const Contact: React.FC = () => {
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
       `Project Details:\n${formData.details}`
     );
 
-    window.location.href = `mailto:hello@hyperlandhq.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:support@hyperlandhq.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-[10px] font-bold uppercase tracking-[0.3em] reveal stagger-2">
               <div>
                 <p className="text-neutral-400 mb-4">Email</p>
-                <a href="mailto:hello@hyperlandhq.com" className="text-neutral-900 break-all">hello@hyperlandhq.com</a>
+                <a href="mailto:support@hyperlandhq.com" className="text-neutral-900 break-all">support@hyperlandhq.com</a>
               </div>
               <div>
                 <p className="text-neutral-400 mb-4">Location</p>
@@ -181,7 +181,7 @@ const Contact: React.FC = () => {
               <div className="relative group">
                 <textarea
                   placeholder="Tell us more details about your project"
-                  className="w-full bg-neutral-50 border-b border-neutral-200 py-4 px-4 focus:outline-none focus:border-neutral-900 transition-all text-neutral-900 placeholder:text-neutral-400 placeholder:font-medium placeholder:text-xs min-h-[120px] resize-none"
+                  className="w-full bg-neutral-50 border-b border-neutral-200 py-4 px-4 focus:outline-none focus:border-neutral-900 transition-all text-neutral-900 placeholder:text-neutral-400 placeholder:font-medium placeholder:text-xs min-h-30 resize-none"
                   value={formData.details}
                   onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                 />

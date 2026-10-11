@@ -143,7 +143,7 @@ Avoid hype adjectives, exclamation marks, and generic agency filler.
 | Caselify | https://caselify.com/ |
 | EazySales | https://eazysales.online/ |
 | Jotta Note | Chrome Web Store (`jottaNoteLink` in `pages/Home.tsx`) |
-| Contact | hello@hyperlandhq.com |
+| Contact | support@hyperlandhq.com |
 
 ---
 

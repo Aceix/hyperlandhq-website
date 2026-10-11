@@ -112,7 +112,7 @@ const Home: React.FC = () => {
       url: SITE_URL,
       description:
         "HyperlandHQ is a product-focused software studio that designs, builds, and scales web and mobile products for startups in productivity, legal tech, and commerce.",
-      email: "hello@hyperlandhq.com",
+      email: "support@hyperlandhq.com",
       sameAs: [
         "https://twitter.com/hyperlandhq",
         "https://github.com/hyperlandhq",

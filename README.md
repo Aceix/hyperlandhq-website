@@ -1,5 +1,5 @@
 ## HyperlandHQ website
 
-Contact us at hello@hyperlandhq.com
+Contact us at support@hyperlandhq.com
 
 Made by Google AI studio
