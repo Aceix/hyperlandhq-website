@@ -131,13 +131,18 @@ const Footer: React.FC = () => {
               <a href="https://github.com/hyperlandhq" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-400 hover:text-white transition-colors">GitHub</a>
               <a href="https://linkedin.com/company/hyperlandhq" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-400 hover:text-white transition-colors">LinkedIn</a>
             </div>
+            <div className="flex flex-col space-y-3">
+              <span className="text-xs font-bold text-neutral-600 uppercase tracking-widest">Legal</span>
+              <Link to="/privacy" className="text-sm text-neutral-400 hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="text-sm text-neutral-400 hover:text-white transition-colors">Terms and Conditions</Link>
+            </div>
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-neutral-800 text-neutral-600 text-[10px] uppercase tracking-widest font-bold">
           <p>&copy; {new Date().getFullYear()} HyperlandHQ. Build with precision.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms and Conditions</Link>
           </div>
         </div>
       </div>
