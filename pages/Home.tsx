@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowRight, ChevronRight, Plus, Minus, CheckCircle2, Sparkles, Layout, Box, Code } from "lucide-react";
+import { ArrowRight, ChevronRight, Plus, Minus, Sparkles, Layout, Box, Code } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import { ScrollRevealText } from "../components/ScrollRevealText";
@@ -17,36 +17,6 @@ const Home: React.FC = () => {
     { name: "Jotta Note", sector: "Productivity", engagement: "Design & build", href: jottaNoteLink, image: "/images/jotta-note.png" },
     { name: "CareFusion", sector: "Health tech", engagement: "Product design", image: "/images/carefusion.png" },
     { name: "Your product", sector: "Next in line", engagement: "Let's talk", to: "/contact" },
-  ];
-
-  const products = [
-    {
-      name: "CaptionHype",
-      description: "The purpose-built design platform for every social media person. Generate captions and enhance photos in seconds.",
-      color: "bg-[#853dc1]",
-      textColor: "text-white",
-      large: true,
-      image: "/images/captionhype/hero below.png",
-    },
-    {
-      name: "Caselify",
-      description:
-        "Integrated case management platform for legal practitioners and justice systems. Reimagined for modern efficiency.",
-      color: "bg-[#1A1A1A]",
-      textColor: "text-white",
-    },
-    {
-      name: "EazySales",
-      description: "Simple tool for managing products, prices, and stock levels for small teams. Focus on what sells.",
-      color: "bg-white",
-      textColor: "text-black",
-    },
-    {
-      name: "Your Product",
-      description: "We help you build products that your users will love.",
-      color: "bg-[#1A1A1A]",
-      textColor: "text-white",
-    },
   ];
 
   const services = [
@@ -137,11 +107,11 @@ const Home: React.FC = () => {
       />
       {/* Hero Section */}
       <section className="bg-[#FAFAF8] pt-32 md:pt-40 px-1.5">
-        <div className="max-w-[660px] mx-auto px-5 flex flex-col items-center text-center gap-5 reveal">
+        <div className="max-w-165 mx-auto px-5 flex flex-col items-center text-center gap-5 reveal">
           <h1 className="text-[34px] md:text-[52px] font-medium leading-[1.1] tracking-[-0.03em] text-neutral-900 text-balance">
             Design, develop and scale <span className="md:block">products built properly</span>
           </h1>
-          <p className="text-[15px] md:text-base leading-[1.7] text-neutral-500 max-w-[600px]">
+          <p className="text-[15px] md:text-base leading-[1.7] text-neutral-500 max-w-150">
             HyperlandHQ is a product-focused studio creating tools that matter. We understand the friction in
             productivity, business, and legal tech, then solve it with precision.
           </p>
@@ -162,7 +132,7 @@ const Home: React.FC = () => {
             </Link>
           </div>
 
-          <p className="text-[13px] leading-[26px] text-neutral-500 mt-2 max-w-[420px]">
+          <p className="text-[13px] leading-6.5 text-neutral-500 mt-2 max-w-105">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary align-middle mr-2" />
             Trusted by 20+ companies in productivity, legal and commerce
           </p>
@@ -183,7 +153,7 @@ const Home: React.FC = () => {
                         aria-hidden="true"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <span className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60" aria-hidden="true" />
+                      <span className="absolute inset-0 bg-linear-to-b from-black/50 via-black/35 to-black/60" aria-hidden="true" />
                     </>
                   )}
                   <span className="relative z-10 flex flex-col items-center justify-between h-full w-full py-1">
@@ -194,7 +164,7 @@ const Home: React.FC = () => {
                       <span className="w-2 h-2 rounded-full bg-primary shrink-0 ring-1 ring-white/40" />
                       {item.name}
                     </span>
-                    <span className={`text-xs leading-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${hasImage ? "text-white/80" : "text-neutral-400"}`}>
+                    <span className={`text-xs leading-4.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${hasImage ? "text-white/80" : "text-neutral-400"}`}>
                       {item.engagement}
                     </span>
                   </span>
@@ -236,7 +206,7 @@ const Home: React.FC = () => {
       {/* Statement Section */}
       <section className="bg-[#FAFAF8] px-6 pt-28 pb-28 md:pt-40 md:pb-40">
         <ScrollRevealText
-          className="max-w-[580px] mx-auto text-center text-2xl md:text-[32px] font-medium leading-[1.25] tracking-[-0.02em]"
+          className="max-w-145 mx-auto text-center text-2xl md:text-[32px] font-medium leading-tight tracking-[-0.02em]"
           text="Most products don't fail on features. They fail on foundations. Rushed builds mean slower releases, mounting bugs, and users who quietly leave — not because your idea lacks value, but because the product can't carry it yet. We can help."
         />
       </section>
@@ -296,7 +266,7 @@ const Home: React.FC = () => {
                 </p>
               </div>
               <div>
-                <div className="w-full h-[1px] bg-neutral-800 mb-8"></div>
+                <div className="w-full h-px bg-neutral-800 mb-8"></div>
                 <a
                   href="https://caselify.com/"
                   target="_blank"
@@ -309,7 +279,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Eazysales */}
-            <div className="bg-white p-12 rounded-lg min-h-[320px] flex flex-col justify-between group reveal stagger-1">
+            <div className="bg-white p-12 rounded-lg min-h-80 flex flex-col justify-between group reveal stagger-1">
               <div>
                 <h3 className="text-3xl font-bold text-black mb-6">Eazysales</h3>
                 <p className="text-neutral-500 text-lg max-w-sm leading-relaxed">
@@ -317,7 +287,7 @@ const Home: React.FC = () => {
                 </p>
               </div>
               <div>
-                <div className="w-full h-[1px] bg-neutral-100 mb-8"></div>
+                <div className="w-full h-px bg-neutral-100 mb-8"></div>
                 <a
                   href="https://eazysales.online/"
                   target="_blank"
@@ -333,7 +303,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* CaptionHype - Spans 2 columns */}
             <div className="lg:col-span-2 bg-[#1A1A1A] rounded-lg overflow-hidden flex flex-col md:flex-row reveal">
-              <div className="flex-1 min-h-[300px]">
+              <div className="flex-1 min-h-75">
                 <img src="/images/captionhype/hero below.png" alt="CaptionHype" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 bg-[#853dc1] p-12 flex flex-col justify-between">
@@ -371,7 +341,7 @@ const Home: React.FC = () => {
                 </p>
               </div>
               <div>
-                <div className="w-full h-[1px] bg-neutral-800 mb-8"></div>
+                <div className="w-full h-px bg-neutral-800 mb-8"></div>
                 <Link
                   to="/contact"
                   className="text-[10px] font-bold text-white uppercase tracking-[0.2em] flex items-center group-hover:text-primary transition-colors"
@@ -399,7 +369,7 @@ const Home: React.FC = () => {
             {services.map((service, i) => (
               <div
                 key={i}
-                className={`p-12 bg-white flex flex-col justify-between min-h-[400px] rounded-lg reveal stagger-${(i % 4) + 1}`}
+                className={`p-12 bg-white flex flex-col justify-between min-h-100 rounded-lg reveal stagger-${(i % 4) + 1}`}
               >
                 <div>
                   <div className="mb-12">{service.icon}</div>
@@ -459,7 +429,7 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Team Card 1: Kwesi Image */}
-            <div className="relative aspect-[4/5] rounded-xl overflow-hidden reveal shadow-none">
+            <div className="relative aspect-4/5 rounded-xl overflow-hidden reveal shadow-none">
               <img src="/images/kwesi.jpeg" alt="Kwesi" className="w-full h-full object-cover" />
               <div className="absolute top-10 left-10 text-black text-shadow-md text-shadow-gray-400">
                 <h4 className="text-2xl font-bold mb-1 tracking-tight">Kwesi</h4>

@@ -40,7 +40,7 @@ for (const route of routes) {
     : '';
 
   let html = template
-    .replace(/<title>.*?<\/title>\s*<meta name="description"[^>]*\/>/s, headTags)
+    .replace(/<!-- SEO:START.*?<!-- SEO:END -->/s, headTags)
     .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
 
   const outDir = route === '/' ? distDir : path.join(distDir, route);
