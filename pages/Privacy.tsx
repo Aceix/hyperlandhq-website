@@ -206,7 +206,7 @@ const Privacy: React.FC = () => {
               We retain Personal Data only for as long as necessary to fulfill the purposes set out in this policy. When retention periods expire, data is securely deleted or anonymized.
             </p>
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[520px] text-sm border-t border-neutral-100">
+              <table className="w-full min-w-130 text-sm border-t border-neutral-100">
                 <thead>
                   <tr className="border-b border-neutral-100">
                     <th className={th}>Category of Data</th>
@@ -246,7 +246,7 @@ const Privacy: React.FC = () => {
               <span className={strong}>California Residents (CCPA / CPRA and CalOPPA):</span> Pursuant to California privacy laws, California residents have specific rights regarding their Personal Information:
             </p>
             <div className="overflow-x-auto mb-6">
-              <table className="w-full min-w-[420px] text-sm border-t border-neutral-100">
+              <table className="w-full min-w-105 text-sm border-t border-neutral-100">
                 <thead>
                   <tr className="border-b border-neutral-100">
                     <th className={th}>California Consumer Right</th>
